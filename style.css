@@ -1,0 +1,3 @@
+/* style.css — reservado para estilos globais futuros.
+   Os estilos dos painéis de info são injetados por injectInfoPanelStyles()
+   em info-panel.js, garantindo que funcionem dentro de shadow roots. */

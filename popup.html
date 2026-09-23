@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <style>
+        :root {
+            --sy-error: #e00939;
+            --sy-success: #4caf50;
+            --sy-surface: #ffffff;
+            --sy-border: #e0e0e0;
+            --sy-foreground-high: rgba(0, 0, 0, 0.87);
+            --sy-foreground-medium: rgba(0, 0, 0, 0.6);
+            --sy-foreground-low: rgba(0, 0, 0, 0.38);
+            --sy-border-radius-rounded: 100px;
+            --sy-spacer-1: 4px;
+            --sy-spacer-2: 8px;
+            --sy-spacer-3: 12px;
+            --sy-spacer-4: 16px;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            width: 280px;
+            background-color: var(--sy-surface);
+            font-family: 'Open Sans', 'Segoe UI', system-ui, sans-serif;
+            font-size: 14px;
+            color: var(--sy-foreground-high);
+        }
+
+        .popup-header {
+            padding: var(--sy-spacer-3) var(--sy-spacer-4);
+            border-bottom: 1px solid var(--sy-border);
+        }
+
+        .popup-header .title {
+            font-size: 11px;
+            font-weight: 700;
+            color: var(--sy-foreground-low);
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        .popup-body {
+            padding: var(--sy-spacer-1) 0;
+        }
+
+        .toggle-row {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: var(--sy-spacer-3) var(--sy-spacer-4);
+            gap: var(--sy-spacer-4);
+            transition: background-color 0.15s;
+        }
+
+        .toggle-row:hover {
+            background-color: rgba(0, 0, 0, 0.04);
+        }
+
+        .toggle-row + .toggle-row {
+            border-top: 1px solid var(--sy-border);
+        }
+
+        .label {
+            font-size: 14px;
+            line-height: 1.4;
+            color: var(--sy-foreground-high);
+            user-select: none;
+        }
+
+        /* Switch estilo SYDLE ONE */
+        .switch {
+            position: relative;
+            flex-shrink: 0;
+            width: 44px;
+            height: 24px;
+        }
+
+        .switch input {
+            opacity: 0;
+            width: 0;
+            height: 0;
+            position: absolute;
+        }
+
+        .slider {
+            position: absolute;
+            inset: 0;
+            background-color: var(--sy-error);
+            border: 1px solid var(--sy-error);
+            border-radius: var(--sy-border-radius-rounded);
+            cursor: pointer;
+            transition: background-color 0.2s ease, border-color 0.2s ease;
+        }
+
+        .slider::before {
+            content: '';
+            position: absolute;
+            width: 18px;
+            height: 18px;
+            left: 2px;
+            top: 50%;
+            transform: translateY(-50%);
+            background-color: #fff;
+            border-radius: 50%;
+            transition: transform 0.2s ease;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.25);
+        }
+
+        input:checked + .slider {
+            background-color: var(--sy-success);
+            border-color: var(--sy-success);
+        }
+
+        input:checked + .slider::before {
+            transform: translateY(-50%) translateX(20px);
+        }
+
+        input:focus-visible + .slider {
+            outline: 2px solid var(--sy-success);
+            outline-offset: 2px;
+        }
+    </style>
+</head>
+<body>
+    <div class="popup-header">
+        <span class="title">SYDLE ONE +</span>
+    </div>
+    <div class="popup-body">
+        <div class="toggle-row">
+            <span class="label">Listagem de objetos</span>
+            <label class="switch">
+                <input type="checkbox" id="toggleList">
+                <span class="slider"></span>
+            </label>
+        </div>
+        <div class="toggle-row">
+            <span class="label">Exibição de objeto</span>
+            <label class="switch">
+                <input type="checkbox" id="toggleDetail">
+                <span class="slider"></span>
+            </label>
+        </div>
+        <div class="toggle-row">
+            <span class="label">Botão Query</span>
+            <label class="switch">
+                <input type="checkbox" id="toggleQuery">
+                <span class="slider"></span>
+            </label>
+        </div>
+    </div>
+    <script src="popup.js"></script>
+</body>
+</html>

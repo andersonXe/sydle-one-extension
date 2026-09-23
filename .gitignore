@@ -1,0 +1,13 @@
+# Pacotes gerados ao empacotar a extensão
+*.zip
+*.crx
+*.pem
+
+# Configurações locais do Claude Code
+.claude/
+
+# Sistema operacional / editores
+Thumbs.db
+desktop.ini
+.DS_Store
+.vscode/

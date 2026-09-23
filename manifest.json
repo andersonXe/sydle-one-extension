@@ -1,0 +1,45 @@
+{
+    "update_url": "https://clients2.google.com/service/update2/crx",
+    "name": "SYDLE ONE (New UI) +",
+    "description": "Improvements on SYDLE ONE platform 8.3",
+    "version": "1.0.0",
+    "content_scripts": [
+        {
+            "matches": [
+                "https://*.sydle.one/*"
+            ],
+            "js": [
+                "scripts/dom-utils.js",
+                "scripts/button-functions.js",
+                "scripts/info-panel.js",
+                "scripts/query-parser.js",
+                "scripts/sort-reader.js",
+                "scripts/query-ui.js",
+                "script.js"
+            ]
+        }
+    ],
+    "icons": {
+        "16": "assets/icon16.png",
+        "48": "assets/icon48.png",
+        "128": "assets/icon128.png"
+    },
+    "background": {
+        "service_worker": "background.js"
+    },
+    "action": {
+        "default_popup": "popup.html"
+    },
+    "permissions": [
+        "storage",
+        "activeTab",
+        "scripting"
+    ],
+    "web_accessible_resources": [
+        {
+            "resources": ["style.css", "scripts/injected.js"],
+            "matches": ["https://*.sydle.one/*"]
+        }
+    ],
+    "manifest_version": 3
+}
